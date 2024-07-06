@@ -5,6 +5,8 @@ from PIL import Image
 import requests
 !mkdir pancard_tamperings
 !mkdir pancard_tamperings/images
+original_image = Image.open(requests.get('https://www.thestatesman.com/wp-content/uploads/2019/07/pan-card.jpg', stream=True).raw)
+tampered_image = Image.open(requests.get('https://assets1.cleartax-cdn.com/s/img/20170526124335/Pan4.png', stream=True).raw)  # Changed .pgn to .jpg
 original = original_image.resize((250, 160))
 original.save('pancard_tamperings/images/original.png')
 tampered = tampered_image.resize((250, 160))
